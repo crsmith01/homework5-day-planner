@@ -37,21 +37,21 @@
             <p class="lead">A simple calendar app for scheduling your work day</p>
             <p class="lead">It is currently <span id="currentTime"></span> on <span id="currentDay"></span>.</p>
           </header>
-          <div class="container">
             <!-- Timetable -->
             <!-- <section class="col-12 col-md-8 col-lg-10"> -->
               <div id="color-legend">
-                <div id="past-gray">Past Time</div>
-                <div id="present-red">Current Time</div>
-                <div id="future-green">Future Time</div>
+                <div id="past-gray">Past Event</div>
+                <div id="present-red">Current Event</div>
+                <div id="future-green">Future Event</div>
               </div>
         <div class="container">
             <!-- Timeblocks go here -->
-            <table class="table table-hover text-center">
-                <thead>
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered custom-table text-center">
+                  <thead class="thead-dark">
                     <tr>
                         <th scope="col">Hour</th>
-                        <th scope="col">To-do Item</th>
+                        <th scope="col">Task</th>
                         <th scope="col">Save</th>
                     </tr>
                 </thead>
