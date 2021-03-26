@@ -8,7 +8,7 @@ I WANT to add important events to a daily planner
 SO THAT I can manage my time effectively
 ```
 
-## Acceptance Criteriax
+## Acceptance Criteria
 
 ```
 GIVEN I am using a daily planner to create a schedule:
@@ -28,6 +28,11 @@ GIVEN I am using a daily planner to create a schedule:
 
 ## Mock-Up
 
-The following _______link_______ demonstrates the application functionality:
+The following screenshots demonstrate the application functionality: 
+./assets/images/Screenshot1.png
+./assets/imgages/Screenshot2.png
 
-_____________
+
+## Deployed Application
+https://crsmith01.github.io/homework5-day-planner
+

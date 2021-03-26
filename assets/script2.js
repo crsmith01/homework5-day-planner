@@ -31,17 +31,17 @@ var update = function () {
         // jQuery to create a row
         var createRow = $('<tr class="timeColor">');
         // jQuery to populate the first column of the table - the businessHours array and dataHour
-        var hourRow = $(`<td class="align-middle"><p class="time" id="${businessHours[i]}" data-hour="${dataHour}">${businessHours[i]}</p></td>`);
+        var timeRow = $(`<td class="align-middle"><p class="time" id="${businessHours[i]}" data-hour="${dataHour}">${businessHours[i]}</p></td>`);
         // jQuery to create a the second column of the table - a textbox and dataHour
         var task = $(`<td class="align-middle"><textarea class="form-control taskText" id="${dataHour}text" rows="3"></textarea></td>`);
         // jQuery to create the third column - a save button and dataHour
         var save = $(`<td class="align-middle"><i class="far fa-save fa-3x saveBtn" data-hour="${dataHour}"></i></td>`);
         
-        // Append the newly created table data to the table row
-        createRow.append(hourRow, task, save);
-        // Append the table row to the table body
+        // Appended the newly created table data to the table row
+        createRow.append(timeRow, task, save);
+        // Appended the table row to the body of the table in html
         $('tbody').append(createRow);
-    }
+    };
 
     // Local storage utiziled to save and display what user types in text area
     init();
@@ -50,22 +50,7 @@ var update = function () {
             // Populates textareas with existing local storage
             $('#' + i + 'text').val(localStorage.getItem(i));
         }
-    }
-
-    // Event listener for save button
-    $('.saveBtn').click(function (e) {
-        e.preventDefault();
-        // Identifies what row is being saved to local storage
-        var id = $(this).data('hour');
-        // Saves the row and todo item into local storage
-        let task = {
-            hour: $(this).data('hour'),
-            message: $('#' + id + 'text').val(),
-        };
-        localStorage.setItem(task.hour, task.message);
-        console.log("saved") 
-    });
-
+    };
     
     // Color coding table rows based on past, present, and future hours.
     // For loop through each row on the table, starting at 9 (for 9am - start of business hours)
@@ -73,7 +58,7 @@ var update = function () {
         //  Make the background grey iff the current hour is less than the loop iteration value (starting at 9).
         if (currentHour > i) {
             $('.timeColor')
-            // Used the eq() jQuery method - returns an element with a specific index number of the selected elements.
+            // Used the eq() jQuery method - returns an element with a specific index number of the selected elements
                 .eq(i - 9)
                 .css('background-color', '#d3d3d3');
         }
@@ -89,6 +74,21 @@ var update = function () {
                 .eq(i - 9)
                 .css('background-color', '#77dd77');
         }
-    }
+    };
+
+  // Event listener for save button
+  $('.saveBtn').click(function (e) {
+    e.preventDefault();
+    // Identifies what row is being saved to local storage
+    var id = $(this).data('hour');
+    // Saves the row and task item into local storage
+    let task = {
+        hour: $(this).data('hour'),
+        message: $('#' + id + 'text').val(),
+    };
+    localStorage.setItem(task.hour, task.message);
+    console.log('saved');
+  });
+
 });
 
