@@ -36,11 +36,15 @@
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p class="lead">It is currently <span id="currentTime"></span> on <span id="currentDay"></span>.</p>
-
     </header>
     <div class="container">
       <!-- Timetable -->
       <!-- <section class="col-12 col-md-8 col-lg-10"> -->
+        <div id="color-legend">
+          <div id="past-gray">Past Time</div>
+          <div id="present-red">Current Time</div>
+          <div id="future-green">Future Time</div>
+        </div>
         <div class="table-responsive">
           <table class="table table-hover table-striped table-bordered custom-table text-center">
             <thead class="thead-dark">
@@ -52,49 +56,49 @@
             </thead>
             <tbody>
                 <tr>
-                  <th scope="row">9:00 AM</th>
-                  <td id="userTask"><input type="text" name="task" /></td>
-                  <td id="saveBtn" class="fas fa-save"></td>
+                  <th scope="row" class="timeSlot" data-time="9">9:00 AM - 10:00 AM</th>
+                  <td class="userTask" value="9"><input type="text" name="task" /></td>
+                  <td class="saveBtn" class="fas fa-save"></td>
                 </tr>
                 <tr>
-                    <th scope="row">10:00 AM</th>
-                    <td id="userTask"><input type="text" name="task" /></td>
-                    <td id="saveBtn" class="fas fa-save"></td>
+                    <th scope="row" class="timeSlot" data-time="10">10:00 AM - 11:00 AM</th>
+                    <td class="userTask" value="10"><input type="text" name="task" /></td>
+                    <td class="saveBtn" class="fas fa-save"></td>
                 </tr>
                   <tr>
-                    <th scope="row">11:00 AM</th>
-                    <td id="userTask"><input type="text" name="task" /></td>
-                    <td id="saveBtn" class="fas fa-save"></td>
+                    <th scope="row" class="timeSlot" data-time="11">11:00 AM - 12:00 PM</th>
+                    <td class="userTask" value="11"><input type="text" name="task" /></td>
+                    <td class="saveBtn" class="fas fa-save"></td>
                 </tr>
                   <tr>
-                    <th scope="row">12:00 PM</th>
-                    <td id="userTask"><input type="text" name="task" /></td>
-                    <td id="saveBtn" class="fas fa-save"></td>
+                    <th scope="row" class="timeSlot" data-time="12">12:00 PM - 1:00 PM</th>
+                    <td class="userTask" value="12"><input type="text" name="task" /></td>
+                    <td class="saveBtn" class="fas fa-save"></td>
                 </tr>
                   <tr>
-                    <th scope="row">1:00 PM</th>
-                    <td id="userTask"><input type="text" name="task" /></td>
-                    <td id="saveBtn" class="fas fa-save"></td>
+                    <th scope="row" class="timeSlot" data-time="13">1:00 PM - 2:00 PM</th>
+                    <td class="userTask" value="13"><input type="text" name="task" /></td>
+                    <td class="saveBtn" class="fas fa-save"></td>
                 </tr>
                   <tr>
-                    <th scope="row">2:00 PM</th>
-                    <td id="userTask"><input type="text" name="task" /></td>
-                    <td id="saveBtn" class="fas fa-save"></td>
+                    <th scope="row" class="timeSlot" data-time="14">2:00 PM - 3:00 PM</th>
+                    <td class="userTask" value="14"><input type="text" name="task" /></td>
+                    <td class="saveBtn" class="fas fa-save"></td>
                 </tr>
                   <tr>
-                    <th scope="row">3:00 PM</th>
-                    <td id="userTask"><input type="text" name="task" /></td>
-                    <td id="saveBtn" class="fas fa-save"></td>
+                    <th scope="row" class="timeSlot" data-time="15">3:00 PM - 4:00 PM</th>
+                    <td class="userTask" value="15"><input type="text" name="task" /></td>
+                    <td class="saveBtn" class="fas fa-save"></td>
                 </tr>
                   <tr>
-                    <th scope="row">4:00 PM</th>
-                    <td id="userTask"><input type="text" name="task" /></td>
-                    <td id="saveBtn" class="fas fa-save"></td>
+                    <th scope="row" class="timeSlot" data-time="16">4:00 PM - 5:OO PM</th>
+                    <td class="userTask" value="16"><input type="text" name="task" /></td>
+                    <td class="saveBtn" class="fas fa-save"></td>
                 </tr>
                   <tr>
-                    <th scope="row">5:00 PM</th>
-                    <td id="userTask"><input type="text" name="task" /></td>
-                    <td id="saveBtn" class="fas fa-save"></td>
+                    <th scope="row" class="timeSlot" data-time="17">5:00 PM - 6:00 PM</th>
+                    <td class="userTask" value="17"><input type="text" name="task" /></td>
+                    <td class="saveBtn" class="fas fa-save"></td>
                 </tr>
               </tbody>
           </table>

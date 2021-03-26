@@ -45,18 +45,34 @@ body {
     color: #000000;
     border-top: 1px dashed #000000;
   }
+
+  /* Color Key */
+  #color-legend {
+    margin: 0 10% 0 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 16px;
+    height: 50px;
+  }
   
-  .past {
+  #color-legend div {
+    width: 33%;
+    padding: 10px 0 10px 0;
+  }
+
+  #past-grey {
     background-color: #d3d3d3;
     color: white;
   }
   
-  .present {
+  #present-red {
     background-color: #ff6961;
     color: white;
   }
   
-  .future {
+  #future-green {
     background-color: #77dd77;
     color: white;
   }
@@ -73,5 +89,10 @@ body {
   .saveBtn i:hover {
     font-size: 20px;
     transition: all 0.3s ease-in-out;
+  }
+
+  .table-bordered {
+    border-color: black;
+    vertical-align: middle;
   }
   
