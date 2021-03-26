@@ -2,8 +2,8 @@
   $(document).ready(function () {
     var currentHour = moment().hour();
 
-    // Displays the current date and time in the Jumbotron
-    var update = function () {
+// Moment to display current day, date, and time in jumbotron
+var update = function () {
         $('#currentDay').text(moment().format('dddd, MMMM Do'));
         $('#currentTime').text(moment().format('h:mm:ss a'));
     };

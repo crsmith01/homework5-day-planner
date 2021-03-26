@@ -27,7 +27,7 @@
             integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
             crossorigin="anonymous">
         </script>
-        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="./style.css" />
         <title>Work Day Scheduler</title>
     </head>
 
@@ -37,20 +37,19 @@
             <p class="lead">A simple calendar app for scheduling your work day</p>
             <p class="lead">It is currently <span id="currentTime"></span> on <span id="currentDay"></span>.</p>
           </header>
-            <!-- Timetable -->
-            <!-- <section class="col-12 col-md-8 col-lg-10"> -->
+            <!-- Added color key -->
               <div id="color-legend">
                 <div id="past-gray">Past Event</div>
                 <div id="present-red">Current Event</div>
                 <div id="future-green">Future Event</div>
               </div>
         <div class="container">
-            <!-- Timeblocks go here -->
+            <!-- Added timetable here - will be dynamically created in script.js file -->
             <div class="table-responsive">
                 <table class="table table-hover table-bordered custom-table text-center">
                   <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Hour</th>
+                        <th scope="col">Time</th>
                         <th scope="col">Task</th>
                         <th scope="col">Save</th>
                     </tr>
@@ -58,13 +57,11 @@
                 <tbody></tbody>
             </table>
 
-            
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-        <script
-            src="https://kit.fontawesome.com/6152c8af05.js"
-            crossorigin="anonymous"
-        ></script>
+        <script src="https://kit.fontawesome.com/6152c8af05.js" crossorigin="anonymous"></script>
         <script src="./script2.js"></script>
     </body>
 </html>
