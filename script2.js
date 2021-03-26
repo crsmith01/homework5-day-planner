@@ -1,5 +1,5 @@
 
-  $(document).ready(function () {
+$(document).ready(function () {
     var currentHour = moment().hour();
 
 // Moment to display current day, date, and time in jumbotron
@@ -8,10 +8,11 @@ var update = function () {
         $('#currentTime').text(moment().format('h:mm:ss a'));
     };
     update();
+    // Updates the time every second, so clock in jumbotron is always up-to-date.
     setInterval(update, 1000);
 
-    // Array with hours for scheduler
-    const hours = [
+    // Created array of standard business hours for the timetable
+    const businessHours = [
         '9:00 AM - 10:00 AM',
         '10:00 AM - 11:00 AM',
         '11:00 AM - 12:00 PM',
@@ -23,45 +24,35 @@ var update = function () {
         '5:00 PM - 6:00 PM',
     ];
 
-    //---------------
-    // Loop to make table based on length of hours array
-    //---------------
-    for (var i = 0; i < hours.length; i++) {
-        //Assign current hour in 24-hr notation to a variable
+    // Used a for loop to generate table based on length of above array (business hours)
+    for (var i = 0; i < businessHours.length; i++) {
+        // Make the current hour a variable on a 24-hr clock 
         var dataHour = [i + 9];
-        // Create a row
-        var tRow = $('<tr class="hourColor">');
-        // Populate first column with hours array along with dataHour
-        var hourRow = $(
-            `<td class="align-middle"><h3 class="time" id="${hours[i]}" data-hour="${dataHour}">${hours[i]}</h3></td>`
-        );
-        // Create a column with a textbox along with dataHour
-        var task = $(
-            `<td class="align-middle"><textarea class="form-control taskText" id="${dataHour}text" rows="3"></textarea></td>`
-        );
-        // Create a column with a save button along with dataHour
-        var save = $(
-            `<td class="align-middle"><i class="far fa-save fa-3x saveBtn" data-hour="${dataHour}"></i></td>`
-        );
+        // jQuery to create a row
+        var createRow = $('<tr class="timeColor">');
+        // jQuery to populate the first column of the table - the businessHours array and dataHour
+        var hourRow = $(`<td class="align-middle"><p class="time" id="${businessHours[i]}" data-hour="${dataHour}">${businessHours[i]}</p></td>`);
+        // jQuery to create a the second column of the table - a textbox and dataHour
+        var task = $(`<td class="align-middle"><textarea class="form-control taskText" id="${dataHour}text" rows="3"></textarea></td>`);
+        // jQuery to create the third column - a save button and dataHour
+        var save = $(`<td class="align-middle"><i class="far fa-save fa-3x saveBtn" data-hour="${dataHour}"></i></td>`);
+        
         // Append the newly created table data to the table row
-        tRow.append(hourRow, task, save);
+        createRow.append(hourRow, task, save);
         // Append the table row to the table body
-        $('tbody').append(tRow);
+        $('tbody').append(createRow);
     }
 
-    //---------------
-    // Add content of text area to local storage on save, and display
-    //---------------
-    // Index the textareas in the html, and assigns local storage values
+    // Local storage utiziled to save and display what user types in text area
     init();
     function init() {
-        for (var k = 9; k < 18; k++) {
+        for (var i = 9; i < 18; i++) {
             // Populates textareas with existing local storage
-            $('#' + k + 'text').val(localStorage.getItem(k));
+            $('#' + i + 'text').val(localStorage.getItem(i));
         }
     }
 
-    // Event listener on save button
+    // Event listener for save button
     $('.saveBtn').click(function (e) {
         e.preventDefault();
         // Identifies what row is being saved to local storage
@@ -72,29 +63,30 @@ var update = function () {
             message: $('#' + id + 'text').val(),
         };
         localStorage.setItem(task.hour, task.message);
+        console.log("saved") 
     });
 
-    //---------------
-    // Color code the hour blocks based on time of day and whether is in past, present, or future
-    //---------------
-    // Loop across each row of the table, starting at 9 (for 9am)
-    for (var j = 9; j < 18; j++) {
-        // If the current hour is less than the loop iteration value (starting at 9), make the background one color
-        if (currentHour > j) {
-            $('.hourColor')
-                .eq(j - 9)
+    
+    // Color coding table rows based on past, present, and future hours.
+    // For loop through each row on the table, starting at 9 (for 9am - start of business hours)
+    for (var i = 9; i < 18; i++) {
+        //  Make the background grey iff the current hour is less than the loop iteration value (starting at 9).
+        if (currentHour > i) {
+            $('.timeColor')
+            // Used the eq() jQuery method - returns an element with a specific index number of the selected elements.
+                .eq(i - 9)
                 .css('background-color', '#d3d3d3');
         }
-        // If the current hour is equal to the loop iteration value (starting at 9), make the background another color
-        if (currentHour === j) {
-            $('.hourColor')
-                .eq(j - 9)
+        // Make the background red if the current hour is equal to the loop iteration value (starting at 9).
+        if (currentHour === i) {
+            $('.timeColor')
+                .eq(i - 9)
                 .css('background-color', '#ff6961');
         }
-        // If the current hour is more than the loop iteration value (starting at 9), make the background a third color
-        if (currentHour < j) {
-            $('.hourColor')
-                .eq(j - 9)
+        // Make the background green if the current hour is more than the loop iteration value (starting at 9).
+        if (currentHour < i) {
+            $('.timeColor')
+                .eq(i - 9)
                 .css('background-color', '#77dd77');
         }
     }

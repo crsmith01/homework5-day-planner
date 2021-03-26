@@ -1,12 +1,12 @@
 /* General */
 
-* {
-  font-size: 16px;
+p {
+  font-size: 20px;
 }
 
 body {
     font-family: 'Open Sans', sans-serif;
-    font-size: 10px;
+    font-size: 16px;
     line-height: 1;
   }
   
@@ -67,11 +67,13 @@ body {
     text-align: center;
     font-size: 16px;
     height: 50px;
+    border-color: black;
   }
   
   #color-legend div {
     width: 33%;
     padding: 10px 0 10px 0;
+    border-color: black;
   }
 
   #past-grey {
